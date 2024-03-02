@@ -32,7 +32,7 @@
       </div>
       <div class="text-sm text-gray-600 pb-4">
         No Account Yet?{" "}
-        <a class="hover:underline" href="/"> Create a new account </a>
+        <a class="hover:underline" href="/auth/register"> Create a new account </a>
       </div>
       <div class="flex-it py-2">
         <button

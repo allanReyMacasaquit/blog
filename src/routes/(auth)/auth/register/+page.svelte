@@ -79,7 +79,7 @@
       </div>
       <div class="text-sm text-gray-600 pb-4">
         Already Registered?{" "}
-        <a class="hover:underline" href="/"> Go to Login </a>
+        <a class="hover:underline" href="/auth/login"> Go to Login </a>
       </div>
       <div class="flex-it py-2">
         <button
