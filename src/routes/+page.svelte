@@ -7,8 +7,18 @@
   let glideContent = "";
 
   function createGlide() {
+    let date = new Date();
     const glide = {
-      content: glideContent
+      content: glideContent,
+      id: date.toISOString(),
+      content: glideContent,
+      user: {
+        nickName: "Filip99",
+        avatar: "https://thrangra.sirv.com/Avatar1.png"
+      },
+      likesCount: 0,
+      subglidesCount: 0,
+      date
     };
     glides = [glide, ...glides];
     glideContent = "";
