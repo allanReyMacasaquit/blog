@@ -1,6 +1,6 @@
 <script>
-  import NavSidebar from "../../components/sidebars/NavSidebar.svelte";
-  import TrendSidebar from "../../components/sidebars/TrendSidebar.svelte";
+  import NavSidebar from "$components/sidebars/NavSidebar.svelte";
+  import TrendSidebar from "$components/sidebars/TrendSidebar.svelte";
 </script>
 
 <div class="w-full h-full bg-gray-900 text-gray-100">
