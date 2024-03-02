@@ -1,5 +1,5 @@
 <script>
-  import { trends } from "./trendLink";
+  import { trends } from "./trendsLink";
 </script>
 
 <div class="flex-it md:w-92 w-0 mt-4">
