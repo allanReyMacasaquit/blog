@@ -1,18 +1,23 @@
 <script>
-  import TiHomeOutline from "svelte-icons/ti/TiHomeOutline.svelte";
-  import TiGroupOutline from "svelte-icons/ti/TiGroupOutline.svelte";
-  import TiCogOutline from "svelte-icons/ti/TiCogOutline.svelte";
-  import TiBell from "svelte-icons/ti/TiBell.svelte";
-  import TiZoomOutline from "svelte-icons/ti/TiZoomOutline.svelte";
-  import TiSocialFlickr from "svelte-icons/ti/TiSocialFlickr.svelte";
   import TiTrash from "svelte-icons/ti/TiTrash.svelte";
   import TiMessage from "svelte-icons/ti/TiMessage.svelte";
   import TiHeartOutline from "svelte-icons/ti/TiHeartOutline.svelte";
   import TiImageOutline from "svelte-icons/ti/TiImageOutline.svelte";
+  let glides = [];
+  let glideContent = "";
+
+  function createGlide() {
+    const glide = {
+      content: glideContent
+    };
+    glides = [glide, ...glides];
+    glideContent = "";
+  }
 </script>
 
 <!-- Children -->
 <!-- HOME PAGE START -->
+{JSON.stringify(glides)}
 <div class="flex-it py-1 px-4 flex-row">
   <div class="flex-it mr-4">
     <div class="w-12 h-12 overflow-visible cursor-pointer transition duration-200 hover:opacity-80">
@@ -27,6 +32,7 @@
   <div class="flex-it flex-grow">
     <div class="flex-it">
       <textarea
+        bind:value={glideContent}
         name="content"
         rows="1"
         id="glide"
@@ -45,6 +51,7 @@
       </div>
       <div class="flex-it w-32 mt-3 cursor-pointer">
         <button
+          on:click={createGlide}
           type="button"
           class="disabled:cursor-not-allowed disabled:bg-gray-400 bg-blue-400 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded-full flex-it transition duration-200"
         >
@@ -58,6 +65,7 @@
   <!-- MESSENGER END -->
 </div>
 <div class="h-px bg-gray-700 my-1" />
+
 <!-- GLIDE POST START -->
 <div class="flex-it p-4 border-b-1 border-solid border-gray-700">
   <div class="flex-it flex-row">
