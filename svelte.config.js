@@ -5,7 +5,8 @@ const config = {
   kit: {
     adapter: adapter(),
     alias: {
-      $components: "./src/components/*"
+      $components: "./src/components/*",
+      $utils: "./src/utils/*"
     }
   },
   preprocess: vitePreprocess()
