@@ -8,7 +8,7 @@
   let glides = [];
   let glideContent = "";
 
-  const { documentBody } = getUIContext();
+  const { documentBody, isXl, isLg } = getUIContext();
 
   function createGlide() {
     let date = new Date();
@@ -80,6 +80,8 @@
 </div>
 <div class="h-px bg-gray-700 my-1" />
 {JSON.stringify($documentBody)}
+isXL: {$isXl}
+isLg: {$isLg}
 <!-- GLIDE POST START -->
 {#each glides as glide (glide.id)}
   <GlidePost {glide} />
