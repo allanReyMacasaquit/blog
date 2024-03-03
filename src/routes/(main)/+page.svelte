@@ -79,8 +79,6 @@
   <!-- MESSENGER END -->
 </div>
 <div class="h-px bg-gray-700 my-1" />
-isXL: {$isXl}
-isLg: {$isLg}
 <!-- GLIDE POST START -->
 {#each glides as glide (glide.id)}
   <GlidePost {glide} />
