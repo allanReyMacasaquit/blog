@@ -28,7 +28,7 @@
       const position = openerMenu.getBoundingClientRect();
 
       popupBottomPosition = openerMenu.clientHeight - 40 + "px";
-      popupLeftPosition = position.left + 85 + "px";
+      popupLeftPosition = position.left + 80 + "px";
     }
   }
 
