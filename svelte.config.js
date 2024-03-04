@@ -6,7 +6,8 @@ const config = {
     adapter: adapter(),
     alias: {
       $components: "./src/components/*",
-      $utils: "./src/utils/*"
+      $utils: "./src/utils/*",
+      $actions: "./src/actions/*"
     }
   },
   preprocess: vitePreprocess()

@@ -1,5 +1,5 @@
 <script>
-  import { json } from "@sveltejs/kit";
+  import { validate } from "$actions/validate";
 
   let registerFormData = {
     fullName: "",
@@ -22,6 +22,7 @@
         <div class="flex-it py-2">
           <label for="fullName" class="block text-sm font-medium text-gray-700"> Full Name </label>
           <input
+            use:validate={[1]}
             bind:value={registerFormData.fullName}
             type="text"
             name="fullName"
@@ -36,6 +37,7 @@
         <div class="flex-it py-2">
           <label for="nickName" class="block text-sm font-medium text-gray-700"> Nick Name </label>
           <input
+            use:validate={[2]}
             bind:value={registerFormData.nickName}
             type="text"
             name="nickName"
@@ -47,6 +49,7 @@
         <div class="flex-it py-2">
           <label for="email" class="block text-sm font-medium text-gray-700"> Email </label>
           <input
+            use:validate={[3]}
             bind:value={registerFormData.email}
             type="text"
             name="email"
@@ -58,6 +61,7 @@
         <div class="flex-it py-2">
           <label for="avatar" class="block text-sm font-medium text-gray-700"> Avatar </label>
           <input
+            use:validate={[4]}
             bind:value={registerFormData.avatar}
             type="text"
             name="avatar"
@@ -69,6 +73,7 @@
         <div class="flex-it py-2">
           <label for="password" class="block text-sm font-medium text-gray-700"> Password </label>
           <input
+            use:validate={[5]}
             bind:value={registerFormData.password}
             type="password"
             name="password"
@@ -82,6 +87,7 @@
             Password Confirmation
           </label>
           <input
+            use:validate={[6]}
             bind:value={registerFormData.passwordConfirmation}
             type="password"
             name="passwordConfirmation"
