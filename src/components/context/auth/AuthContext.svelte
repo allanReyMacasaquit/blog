@@ -18,4 +18,8 @@
   });
 </script>
 
-<Loader size={30} />
+{#if $isLoading && !$isAuthenticated}
+  <Loader size={30} />
+{:else}
+  <slot />
+{/if}
