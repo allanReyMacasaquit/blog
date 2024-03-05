@@ -1,7 +1,7 @@
 <script>
   import { createFormStore } from "$stores/formHandlerStore";
 
-  const { validate, form } = createFormStore({
+  const { validate, form, errors } = createFormStore({
     fullName: "",
     nickName: "",
     email: "",
@@ -15,6 +15,7 @@
   }
 </script>
 
+{JSON.stringify($errors)}
 <form class="flex-it">
   <div class="flex-it overflow-hidden sm:rounded-md">
     <div class="flex-it">
