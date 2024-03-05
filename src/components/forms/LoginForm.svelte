@@ -1,10 +1,13 @@
 <script>
-  let loginFormData = {
+  import { createFormStore } from "$stores/formHandlerStore";
+
+  const { validate, form } = createFormStore({
     email: "",
     password: ""
-  };
+  });
+
   function submitForm() {
-    alert(JSON.stringify(loginFormData));
+    alert(JSON.stringify($form));
   }
 </script>
 
@@ -15,7 +18,8 @@
         <div class="flex-it py-2">
           <label for="email" class="block text-sm font-medium text-gray-700"> Email </label>
           <input
-            bind:value={loginFormData.email}
+            use:validate={[1]}
+            bind:value={$form.email}
             type="email"
             name="email"
             id="email"
@@ -28,7 +32,8 @@
         <div class="flex-it py-2">
           <label for="password" class="block text-sm font-medium text-gray-700"> Password </label>
           <input
-            bind:value={loginFormData.password}
+            use:validate={[2]}
+            bind:value={$form.password}
             type="password"
             name="password"
             id="password"

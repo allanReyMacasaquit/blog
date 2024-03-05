@@ -1,19 +1,17 @@
 <script>
-  import { formHandlerStore } from "$stores/formHandlerStore";
+  import { createFormStore } from "$stores/formHandlerStore";
 
-  const { validate } = formHandlerStore;
-
-  let registerFormData = {
+  const { validate, form } = createFormStore({
     fullName: "",
     nickName: "",
     email: "",
     avatar: "",
     password: "",
     passwordConfirmation: ""
-  };
+  });
 
   function submitForm() {
-    alert(JSON.stringify(registerFormData));
+    alert(JSON.stringify($form));
   }
 </script>
 
@@ -25,7 +23,7 @@
           <label for="fullName" class="block text-sm font-medium text-gray-700"> Full Name </label>
           <input
             use:validate={[1]}
-            bind:value={registerFormData.fullName}
+            bind:value={$form.fullName}
             type="text"
             name="fullName"
             id="fullName"
@@ -40,7 +38,7 @@
           <label for="nickName" class="block text-sm font-medium text-gray-700"> Nick Name </label>
           <input
             use:validate={[2]}
-            bind:value={registerFormData.nickName}
+            bind:value={$form.nickName}
             type="text"
             name="nickName"
             id="nickName"
@@ -52,7 +50,7 @@
           <label for="email" class="block text-sm font-medium text-gray-700"> Email </label>
           <input
             use:validate={[3]}
-            bind:value={registerFormData.email}
+            bind:value={$form.email}
             type="text"
             name="email"
             id="email"
@@ -64,7 +62,7 @@
           <label for="avatar" class="block text-sm font-medium text-gray-700"> Avatar </label>
           <input
             use:validate={[4]}
-            bind:value={registerFormData.avatar}
+            bind:value={$form.avatar}
             type="text"
             name="avatar"
             id="avatar"
@@ -76,7 +74,7 @@
           <label for="password" class="block text-sm font-medium text-gray-700"> Password </label>
           <input
             use:validate={[5]}
-            bind:value={registerFormData.password}
+            bind:value={$form.password}
             type="password"
             name="password"
             id="password"
@@ -90,7 +88,7 @@
           </label>
           <input
             use:validate={[6]}
-            bind:value={registerFormData.passwordConfirmation}
+            bind:value={$form.passwordConfirmation}
             type="password"
             name="passwordConfirmation"
             id="passwordConfirmation"
