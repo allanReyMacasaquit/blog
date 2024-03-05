@@ -7,7 +7,8 @@ const config = {
     alias: {
       $components: "./src/components/*",
       $utils: "./src/utils/*",
-      $actions: "./src/actions/*"
+      $actions: "./src/actions/*",
+      $stores: "./src/stores/*"
     }
   },
   preprocess: vitePreprocess()

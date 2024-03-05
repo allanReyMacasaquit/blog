@@ -1,5 +1,7 @@
 <script>
-  import { validate } from "$actions/validate";
+  import { formHandlerStore } from "$stores/formHandlerStore";
+
+  const { validate } = formHandlerStore;
 
   let registerFormData = {
     fullName: "",
