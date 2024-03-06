@@ -1,13 +1,20 @@
 <script>
-  import { createFormStore } from "$stores/formHandlerStore";
+  import {
+    createFormStore,
+    emailValidator,
+    fullNameValidator,
+    maxLengthValidator,
+    passwordValidator,
+    usernameValidator
+  } from "$stores/formHandlerStore";
+  import FormError from "./FormError.svelte";
 
   const { validate, form, errors } = createFormStore({
     fullName: "",
     nickName: "",
     email: "",
     avatar: "",
-    password: "",
-    passwordConfirmation: ""
+    password: ""
   });
 
   function submitForm() {
@@ -15,7 +22,6 @@
   }
 </script>
 
-{JSON.stringify($errors)}
 <form class="flex-it">
   <div class="flex-it overflow-hidden sm:rounded-md">
     <div class="flex-it">
@@ -23,46 +29,46 @@
         <div class="flex-it py-2">
           <label for="fullName" class="block text-sm font-medium text-gray-700"> Full Name </label>
           <input
-            use:validate={[1]}
+            use:validate={[maxLengthValidator, fullNameValidator]}
             bind:value={$form.fullName}
             type="text"
             name="fullName"
             id="fullName"
             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
           />
-          <div class="flex-it grow text-xs bg-red-400 text-white p-3 pl-3 mt-1 rounded-md">
-            Error Error Beep Beep!
-          </div>
+          <FormError errors={$errors.fullName} />
         </div>
 
         <div class="flex-it py-2">
-          <label for="nickName" class="block text-sm font-medium text-gray-700"> Nick Name </label>
+          <label for="nickName" class="block text-sm font-medium text-gray-700"> Username </label>
           <input
-            use:validate={[2]}
+            use:validate={[maxLengthValidator, usernameValidator]}
             bind:value={$form.nickName}
             type="text"
             name="nickName"
             id="nickName"
             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
           />
+          <FormError errors={$errors.nickName} />
         </div>
 
         <div class="flex-it py-2">
           <label for="email" class="block text-sm font-medium text-gray-700"> Email </label>
           <input
-            use:validate={[3]}
+            use:validate={[emailValidator]}
             bind:value={$form.email}
             type="text"
             name="email"
             id="email"
             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
           />
+          <FormError errors={$errors.email} />
         </div>
 
         <div class="flex-it py-2">
           <label for="avatar" class="block text-sm font-medium text-gray-700"> Avatar </label>
           <input
-            use:validate={[4]}
+            use:validate
             bind:value={$form.avatar}
             type="text"
             name="avatar"
@@ -74,27 +80,14 @@
         <div class="flex-it py-2">
           <label for="password" class="block text-sm font-medium text-gray-700"> Password </label>
           <input
-            use:validate={[5]}
+            use:validate={[passwordValidator]}
             bind:value={$form.password}
             type="password"
             name="password"
             id="password"
             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
           />
-        </div>
-
-        <div class="flex-it py-2">
-          <label for="passwordConfirmation" class="block text-sm font-medium text-gray-700">
-            Password Confirmation
-          </label>
-          <input
-            use:validate={[6]}
-            bind:value={$form.passwordConfirmation}
-            type="password"
-            name="passwordConfirmation"
-            id="passwordConfirmation"
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-          />
+          <FormError errors={$errors.password} />
         </div>
       </div>
     </div>

@@ -1,7 +1,13 @@
 <script>
-  import { createFormStore } from "$stores/formHandlerStore";
+  import {
+    createFormStore,
+    emailValidator,
+    maxLengthValidator,
+    passwordValidator
+  } from "$stores/formHandlerStore";
+  import FormError from "./FormError.svelte";
 
-  const { validate, form } = createFormStore({
+  const { validate, form, errors } = createFormStore({
     email: "",
     password: ""
   });
@@ -18,27 +24,26 @@
         <div class="flex-it py-2">
           <label for="email" class="block text-sm font-medium text-gray-700"> Email </label>
           <input
-            use:validate={[1]}
+            use:validate={[emailValidator]}
             bind:value={$form.email}
             type="email"
             name="email"
             id="email"
             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
           />
-          <div class="flex-it grow text-xs bg-red-400 text-white p-3 pl-3 mt-1 rounded-md">
-            Error Error Beep Beep!
-          </div>
+          <FormError errors={$errors.email} />
         </div>
         <div class="flex-it py-2">
           <label for="password" class="block text-sm font-medium text-gray-700"> Password </label>
           <input
-            use:validate={[2]}
+            use:validate={[passwordValidator]}
             bind:value={$form.password}
             type="password"
             name="password"
             id="password"
             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
           />
+          <FormError errors={$errors.password} />
         </div>
       </div>
     </div>
